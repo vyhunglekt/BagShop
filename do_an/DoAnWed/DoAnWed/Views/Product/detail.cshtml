@@ -1,0 +1,91 @@
+﻿@using DoAnWed.Models
+@model SanPham
+@{
+    ViewBag.Title = "detail";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    string[] list_img =Model.HinhItems.Split(',');
+    string tenloai = ViewBag.tenloai;
+    
+}
+
+<section class="details">
+        <div class="container">
+            <div class="row product-row">
+                <div class="col-md-6">
+                    <div class="product-image">
+                        <div class="image-wrap">
+                            <div class="img--item">
+                                <img src="~/Content/hinh/@Model.HinhSP" alt="a" />
+                            </div>
+                            <div class="img--item">
+                                <img src="~/Content/hinh/@list_img[0]" alt="b" />
+                            </div>
+                            <div class="img--item">
+                                <img src="~/Content/hinh/@list_img[1]" alt="c" />
+                            </div>
+                            <div class="img--item">
+                                <img src="~/Content/hinh/@list_img[2]" alt="d" />
+                            </div>
+                        </div>
+                        <div class="paging">
+                            <span class="prev">
+                                <img src="~/Content/icon/muiten.svg" alt="" />
+                            </span>
+                            <span class="paging__number">
+                                <span class="current">01</span>
+                                /
+                    <span class="total"></span>
+                            </span>
+                            <span class="next">
+                                <img src="~/Content/icon/muiten.svg" alt="" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-details">
+                        <div class="product-details__inner">
+                            <h5 class="product__vendor">@tenloai</h5>
+                            <h2 class="product__title">@Model.TenSP</h2>
+                            <p class="product__price">$ @Model.DonGia</p>
+                            
+                                <div class="product__variants">
+                                    <div class="product__variants-inner">
+                                        <div class="product__quantity">
+                                            <button class="btn decrease">-</button>
+                                            <input type="text" id="value" value="0" name="countItem"></input>
+                                            <button class="btn increase">+</button>
+                                        </div>
+                                        <a class="btn form-btn" href="@Url.Action("ThemMAtHang", "DatHang", new { masp=@Model.MaSP},null)">Add to bag</a>
+                                    </div>
+                                </div>
+                           
+                            <div class="product__content">
+                                <div class="accordion active">
+                                    <div class="accordion__title">
+                                        <h5>Product description</h5>
+                                    </div>
+                                    <div class="accordion__content">@Model.MoTa </div>
+                                </div>
+                                <div class="accordion active">
+                                    <div class="accordion__title">
+                                        <h5>Product details</h5>
+                                    </div>
+                                    <div class="accordion__content">
+                                        <ul>
+                                            <li>Brand: Accessories</li>
+                                            <li>Program: Accessories</li>
+                                            <li>Name: AI</li>
+                                            <li>Material: 100 % calf leather</li>
+                                            <li>Imported</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<//section>
+

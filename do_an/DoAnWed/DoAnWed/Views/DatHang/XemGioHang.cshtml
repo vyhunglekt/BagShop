@@ -1,0 +1,94 @@
+﻿@using DoAnWed.Models;
+@model GioHang
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<section class="cart-page">
+    <div class="page-bannerCard">
+        <h1>Your Bag</h1>
+    </div>
+  
+        <div class="container">
+            <div class="row cart">
+                <div class="col-md-8 cart-left">
+                    <div class="cart__count">
+                        <a href="#">3 ITEMS</a>
+                    </div>
+                    <div class="form__body">
+                        <div class="table table--cart">
+                            <table>
+                                <tbody>
+                                    @foreach (CartItem i in Model.lst)
+                                    {
+                                        <tr>
+                                            <td class="table__image">
+                                                <a href="#">
+                                                    <img src="~/Content/hinh/@i.sHinhSP" alt="" />
+                                                </a>
+                                            </td>
+                                            <td class="table__name">
+                                                <h5>AI</h5>
+                                                <a href="#" class="table__product">@i.sTenSP
+                                                </a>
+                                                <div class="edit">
+                                                    <a href="#">Remove</a>
+                                                </div>
+                                            </td>
+                                            <td class="table__quantity">
+                                                <h6>Qty</h6>
+                                                <div class="form__controls">
+                                                    <select name="txtSL" id="quantity" class="select">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                    <b class="button"></b>
+                                                </div>
+                                            </td>
+                                            <td class="table__total">
+                                                <h6>Price</h6>
+                                                <span class="price">$ @i.ThanhTien</span>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                         
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 cart-right">
+                    <div class="order-summary">
+                        <h4>Order Summary</h4>
+                        <h3>
+                            <span>Subtotal
+                      <span class="saso-cart-original-total"></span>
+                               $ @Model.thanhTien()</span>
+                        </h3>
+
+                        <p>Shipping &amp; taxes calculated at checkout</p>
+                        <div class="form__actions">
+                            <a
+                                href="@Url.Action("CheckOut","DatHang")"                             
+                                class="form-btn btn btn--checkout">
+                                Checkout
+                            </a>
+                            <a href="/">CONTINUE SHOPPING</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+</section>

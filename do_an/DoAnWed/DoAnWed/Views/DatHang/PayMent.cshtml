@@ -1,0 +1,235 @@
+﻿@using DoAnWed.Models;
+@model GioHang
+@{
+    ViewBag.Title = "PayMent";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    PayMent pm = ViewBag.pm;
+    
+}
+<div class="information">
+    <div class="container">
+        <div class="row wrap">
+            <div class="col-md-6">
+                <div class="information__header">
+                    <a href="#" class="logo logo--info">
+                        <span>the look</span>
+                    </a>
+                    <nav>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb--item">
+                                <a href="#">Cart</a>
+                                <i>
+                                    <img src="img/icon-bread.svg" alt="" /></i>
+                            </li>
+                            <li class="breadcrumb--item">
+                                <a href="#">Infomation</a>
+                                <i>
+                                    <img src="img/icon-bread.svg" alt="" /></i>
+                            </li>
+                            <li class="breadcrumb--item">
+                                <a href="#">Shipping</a>
+                                <i>
+                                    <img src="img/icon-bread.svg" alt="" /></i>
+                            </li>
+                            <li class="breadcrumb--item">
+                                <a href="#">Payment</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="step">
+                    <form action="/" method="POST">
+                        <div class="step-section">
+                            <div class="section">
+                                <div class="content-box">
+                                    <div class="box-item">
+                                        <div class="review-block">
+                                            <p class="review-block__label">Contact</p>
+                                            <p class="review-block__content">@pm.sEmail</p>
+                                        </div>
+                                        <div class="review-link">
+                                            <a href="#">Change</a>
+                                        </div>
+                                    </div>
+                                    <div class="box-item">
+                                        <div class="review-block">
+                                            <p class="review-block__label">Ship to</p>
+                                            <p class="review-block__content">@pm.sAdderss</p>
+                                        </div>
+                                        <div class="review-link">
+                                            <a href="#">Change</a>
+                                        </div>
+                                    </div>
+                                    <div class="box-item">
+                                        <div class="review-block">
+                                            <p class="review-block__label">Method</p>
+                                            <p class="review-block__content">
+                                                <input type="radio" class="radio" checked>
+                                        <span>
+                                            3-5 Days (may be sent in multiple packages)                               
+                                          </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section">
+                                <div class="section__title">
+                                    <h2>Payment</h2>
+                                    <p>All transactions are secure and encrypted.</p>
+                                </div>
+                                <div class="content-box">
+                                    <div class="box-item">
+                                        <div class="radio__input">
+                                            <input type="radio" class="radio" name="checkout_payment" id="rd1" checked="checked">
+                                            <span>Credit Card
+                                            </span>
+                                        </div>
+                                        <div class="radio__label">
+                                            <span class="payment-icons">
+                                                <span class="icon"
+                                                    style="background-image: url(img/visa.svg);"></span>
+                                                <span class="icon"
+                                                    style="background-image: url(img/master-card.svg)"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field--group">
+                                <div class="fieldset">
+                                    <div class="field__input-wrapper">
+                                        <input placeholder="Card number" autocapitalize="off" spellcheck="false"
+                                            class="field__input field-full" size="30" type="text" value=""
+                                            name="txtCardNumber" id="checkout_CardNumber" />
+                                    </div>
+                                </div>
+                                <div class="fieldset">
+                                    <div class="field__input-wrapper">
+                                        <input placeholder="Name on car" autocapitalize="off" spellcheck="false"
+                                            class="field__input field-full" size="30" type="text" value=""
+                                            name="txtNameCard" id="checkout_NameCard" />
+                                    </div>
+                                </div>
+                                <div style="display: flex;">
+                                    <div class="fieldset">
+                                        <div class="field__input-wrapper">
+                                            <input placeholder="Expiration date (MM / YY)" autocapitalize="off"
+                                                spellcheck="false" class="field__input" size="30" type="text"
+                                                value="" name="txtDate" id="checkout_date" />
+                                        </div>
+                                    </div>
+                                    <div class="fieldset">
+                                        <div class="field__input-wrapper">
+                                            <input placeholder="Security code" autocapitalize="off"
+                                                spellcheck="false" class="field__input" size="30" type="text"
+                                                value="" name="txtCode" id="checkout_code" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section">
+                                <div class="content-box">
+                                    <div class="box-item">
+                                        <div class="radio__input">
+                                            <input type="radio" class="radio" name="checkout_payment" id="rd2">
+                                            <span>Thanh toán bằng tiền mặt
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-footer">
+                                <button type="submit" class="btn form-btn btn-step-footer">Pay now</button>
+                                <a href="#" class="btn btn--link">
+                                    <svg class="back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+                                        <path d="M2 1l1-1 4 4 1 1-1 1-4 4-1-1 4-4"></path>
+                                    </svg>
+                                    <span>Return to shipping</span>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="information__footer">
+                    <div class="copy">
+                        THE LOOK. ALL RIGHTS RESERVED ©2020
+                    </div>
+                </div>
+            </div>
+            <div class="divide"></div>
+            <div class="col-md-5 sidebar">
+                <div class="sidebar__content">
+                    <div class="order-summary">
+                        <div class="order-summary__section">
+                            <div class="product-list">
+                                <table>
+                                    <tbody>
+                                         @foreach (CartItem item in Model.lst) { 
+                                            <tr class="product">
+                                            <td class="product__image">
+                                                <div class="product-thumbnail">
+                                                    <div class="product-thumbnail__wrapper">
+                                                       
+                                                        <img src="~/Content/hinh/@item.sHinhSP"  
+                                                            alt="color:black|gallery"
+                                                            class="product-thumbnail__image"/>
+                                                    </div>
+                                                    <span
+                                                        class="product-thumbnail__quantity"
+                                                        aria-hidden="true">@item.iSoLuong</span>
+                                                </div>
+                                            </td>
+                                            <th class="product__des">
+                                                <span class="product__des-name">@item.sTenSP
+                                                </span>
+                                            </th>
+                                            <td class="product__price">
+                                                <span>$ @item.iDonGia</span>
+                                            </td>
+                                        </tr>
+                                        }    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="total-line">
+                            <table class="total-line-table">
+                                <tbody>
+                                    <tr class="total-line__subtotal">
+                                        <th class="total-line__name">Subtotal</th>
+                                        <td class="total-line__price">
+                                            <span>$ @Model.thanhTien()</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="total-line__shipping">
+                                        <th class="total-line__name">
+                                            <span>Shipping </span>
+                                        </th>
+                                        <td class="total-line__price">
+                                            <span class="order-summary__emphasis"
+                                                data-checkout-total-shipping-target="0">Free
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="total-line__footer">
+                                    <tr>
+                                        <th class="total-line__name payment-due-label">
+                                            <span class="payment-due-label__total">Total</span>
+                                        </th>
+                                        <td class="total-line__price payment-due">
+                                            <span class="payment-due__price">$ @Model.thanhTien()
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

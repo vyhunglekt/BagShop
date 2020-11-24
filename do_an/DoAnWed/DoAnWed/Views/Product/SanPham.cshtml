@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    
+}
+@using DoAnWed.Models
+@model List<SanPham>
+
+<section class="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filters">
+                    <h3 class="filters__title">Category
+                    </h3>
+                    <article class="category">
+                        <a href="#" class="category-link">All
+                        </a>
+                        <a href="#" class="category-link">Shoulder Bags
+                        </a>
+                        <a href="#" class="category-link">Totes
+                        </a>
+                        <a href="#" class="category-link">Clutch bags
+                        </a>
+                        <a href="#" class="category-link">precious handbags
+                        </a>
+                        <a href="#" class="category-link">Crossbody bags
+                        </a>
+                        <a href="#" class="category-link">backpacks
+                        </a>
+                        <a href="#" class="category-link">mini bags
+                        </a>
+                        <a href="#" class="category-link">belt bags
+                        </a>
+                        <a href="#" class="category-link">top handle and boston bags
+                        </a>
+                    </article>
+                    <h3 class="filters__title">Color
+                    </h3>
+                    <div class="color">
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" value="" id="check-color">
+                            <label class="color-check-label" for="check-color">Begie</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Blue</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Black</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Gold</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Grey</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Neutral</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Pink</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Red</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">Sliver</label>
+                        </div>
+                        <div class="color-check">
+                            <input type="checkbox" class="color-check-input" id="check-color">
+                            <label class="color-check-label" for="check-color">White</label>
+                        </div>
+                        <button class="clear">
+                            <span></span>
+                            <span></span>
+                            Clear all
+                        </button>
+                    </div>
+                    <div class="filters__title">Short by:</div>
+                    <div class="short">
+                        <a href="#" class="short-link">Newest</a>
+                        <a href="#" class="short-link">Price - High to Low</a>
+                        <a href="#" class="short-link">Price - Low to High</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    @foreach (SanPham sp in Model)
+                    {
+                        string[] list_img = sp.HinhItems.Split(',');
+                        <div class="col-md-4">
+                            <div class="product-item">
+                                <a class="product-item__image" href="@Url.Action("detail", "Product", new { masp=sp.MaSP},null)">
+                                    <img src="~/Content/hinh/@sp.HinhSP" />
+                                    <span style="background-image: url(~/Content/hinh/@list_img[0]);"></span>
+                                </a>
+                                <div class="product-item__info">
+                                    <h5><a class="product__name">@sp.TenSP</a></h5>
+                                    <p class="price">$@sp.DonGia</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9 offset-md-3">
+                <div class="page-wrap">
+                    <div class="pagination">
+                        <a href="#" class="btn-prev">&laquo;</a>
+                        <a href="#">1</a>
+                        <a href="#" class="active">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#" class="btn-next">&raquo;</a>
+                    </div>
+                    <div class="back-to-top">
+                        <a href="#" class="btn-back">Back to top</a>
+                        <a href="#">&#8593;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
